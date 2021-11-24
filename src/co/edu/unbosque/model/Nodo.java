@@ -40,4 +40,9 @@ public class Nodo {
     public void setAtras(Nodo atras) {
         this.atras = atras;
     }
+
+    @Override
+    public String toString() {
+        return  " Pelicula: " + dvd;
+    }
 }

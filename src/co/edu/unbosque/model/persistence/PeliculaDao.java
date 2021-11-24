@@ -39,6 +39,12 @@ public class PeliculaDao {
                 String [] fields = line.split(";");
 
                 if(!fields[0].equals("T�tulo")){
+
+                    for (int j = 0; j < fields.length; j++) {
+                        System.out.println("Campo " + j + " " + fields[j]);
+                    }
+
+
                      String titulo=fields[0];
                      String estudio=fields[1];
                      String estado=fields[2];
@@ -83,7 +89,7 @@ public class PeliculaDao {
                 String estudio=nodoActual.dvd.getEstudio();
                 String estado=nodoActual.dvd.getEstado();
                 String version=nodoActual.dvd.getVersion();
-                String precio=nodoActual.dvd.getVersion();
+                String precio=nodoActual.dvd.getPrecio();
                 String calificacion=nodoActual.dvd.getCalificacion();
                 String dateDebut=nodoActual.dvd.getDateDebut();
                 String genero=nodoActual.dvd.getGenero();

@@ -1,6 +1,8 @@
 package co.edu.unbosque.view;
 
 
+import co.edu.unbosque.model.Pelicula;
+
 import javax.swing.JOptionPane;
 import java.awt.*;
 
@@ -18,6 +20,15 @@ public class ViewConsole {
             System.exit(1);
         }
         return oString;
+
+    }
+
+    public void imprimirLista(Pelicula[] lista){
+        String res = "";
+        for (int i = 0; i < lista.length; i++) {
+            res = res + lista[i] + "\n";
+        }
+        JOptionPane.showMessageDialog(null,res);
 
     }
 

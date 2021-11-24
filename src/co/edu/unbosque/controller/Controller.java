@@ -6,6 +6,8 @@ import co.edu.unbosque.view.ViewConsole;
 import co.edu.unbosque.model.persistence.PeliculaDao;
 import co.edu.unbosque.model.ListaDoble;
 
+import javax.swing.*;
+
 public class Controller {
 
     private ViewConsole v;
@@ -34,10 +36,44 @@ public class Controller {
         v.mostrarInformacionConsola("eliminacion");
         Nodo nodoEliminar = listaDoble.getCabeza().adelante.adelante;
         listaDoble.eliminar(nodoEliminar);
+        v.mostrarInformacionConsola(listaDoble.getCabeza().dvd.toString());
+        v.mostrarInformacionConsola("\nAñadir:\n");
+        //Para anadir se le debe pasar de parametro una pelicula nueva al metodo insertarCabezaLista
+        Pelicula p = new Pelicula("Zootopia", "Disney Animation", "Fuera", "1",
+                "300", "PG", "2017", "Aventura", "17 de marzo de 2016",
+                "56454");
+
+        listaDoble.insertarCabezaLista(p);
+
+
+
+        mostrarNodos();
+        //Para editar se debe buscar la pelicula usando el metodo buscar iterativo y
+        // luego pasarle otra instancia de pelicula con los datos actualizados
+        Nodo comprobar = listaDoble.editarIterativo(p,new Pelicula("Zootopia 2", "Disney Animation+", "No estrenada",
+                "1", "1000", "PG-13", "2030",
+                "Aventura", "17 de marzo de 2025",
+                "22222"));
+        System.out.println("\nEditar:     \n");
+        //mostrarNodos();
+        try{
+            String genero = JOptionPane.showInputDialog("Ingrese el Genero que desea buscar");
+            int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de peliculas que desea mostrar"));
+
+            Pelicula[] pelis = listaDoble.ordenarPorGeneroMasCostosos(genero,numero);
+            v.imprimirLista(pelis);
+
+        }catch(Exception e ){
+            e.printStackTrace();
+        }
+
+
+
+
         // se debe hacer el set de la lista doble en cual cargo todos lo datos del csv
         // para postrteriormente sobre escribir el archivo y que los cambios persistan
         dvdCsv.setListaDoble(listaDoble);
-        mostrarNodos();
+        //mostrarNodos();
         dvdCsv.modificarCsv();
 
     }
