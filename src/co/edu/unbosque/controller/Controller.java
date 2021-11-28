@@ -56,7 +56,7 @@ public class Controller {
 
 
 
-        mostrarNodos();
+        //mostrarNodos();
         //Para editar se debe buscar la pelicula usando el metodo buscar iterativo y
         // luego pasarle otra instancia de pelicula con los datos actualizados
         Nodo comprobar = listaDoble.editarIterativo(p,new Pelicula("Zootopia 2", "Disney Animation+", "No estrenada",
@@ -77,11 +77,22 @@ public class Controller {
 //        }
 
         String titulo = JOptionPane.showInputDialog("Indique el titulo de la pelicula que desea buscar");
-        Pelicula[] pe = listaDoble.buscarPorTitulo(titulo);
+        Pelicula[] pe = listaDoble.buscarPorCategoria(titulo, "titulo");
 //        Pelicula resultadoUnico = arbolTitulo.buscar(new Pelicula(titulo, "","",
 //                "", "", "",
 //                "", "", "", "")).getDato();
         v.imprimirLista(pe);
+
+        String clasificacion = JOptionPane.showInputDialog("Indique la calificacion de la pelicula que desea buscar");
+
+        pe = listaDoble.buscarPorCategoria(clasificacion, "calificacion");
+        v.imprimirLista(pe);
+
+        String version = JOptionPane.showInputDialog("Indique la version de la pelicula que desea buscar");
+
+        pe = listaDoble.buscarPorCategoria(version, "version");
+        v.imprimirLista(pe);
+
         //v.mostrarInformacion("Resultado Único: " + resultadoUnico);
 
 

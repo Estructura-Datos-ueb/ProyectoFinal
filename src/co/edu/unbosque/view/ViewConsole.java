@@ -24,11 +24,10 @@ public class ViewConsole {
     }
 
     public void imprimirLista(Pelicula[] lista){
-        String res = "";
+        System.out.println("Resultados Encontrados: ");
         for (int i = 0; i < lista.length; i++) {
-            res = res + lista[i] + "\n";
+            System.out.println(lista[i]);
         }
-        JOptionPane.showMessageDialog(null,res);
 
     }
 

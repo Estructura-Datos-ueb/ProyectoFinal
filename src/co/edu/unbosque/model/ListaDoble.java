@@ -160,23 +160,43 @@ public class ListaDoble {
         return lista;
     }
 
-    public Pelicula[] buscarPorTitulo(String titulo){
+    public Pelicula[] buscarPorCategoria(String dato, String tipo){
         // Crea una copia de la lista.
         Nodo aux = cabeza;
         int contador = 0;
         // Bandera para indicar si el valor existe.
         // Recorre la lista hasta encontrar el elemento o hasta
         // llegar al primer nodo nuevamente.
+
         do{
             // Consulta si el valor del nodo es igual al de referencia.
-            if (aux.getDvd().getTitulo().toLowerCase().contains(titulo.toLowerCase())){
-                // Canbia el valor de la bandera.
-                contador++;
-                aux = aux.adelante;
-            }
-            else{
-                // Avansa al Enlace. nodo.
-                aux = aux.adelante;
+            if(tipo.equalsIgnoreCase("titulo")){
+                if (aux.getDvd().getTitulo().toLowerCase().contains(dato.toLowerCase())){
+                    // Canbia el valor de la bandera.
+                    contador++;
+                    aux = aux.adelante;
+                } else{
+                    // Avansa al Enlace. nodo.
+                    aux = aux.adelante;
+                }
+            }else if (tipo.equalsIgnoreCase("calificacion")){
+                if (aux.getDvd().getCalificacion().toLowerCase().equals(dato.toLowerCase())){
+                    // Canbia el valor de la bandera.
+                    contador++;
+                    aux = aux.adelante;
+                } else{
+                    // Avansa al Enlace. nodo.
+                    aux = aux.adelante;
+                }
+            }else{
+                if (aux.getDvd().getVersion().toLowerCase().equals(dato.toLowerCase())){
+                    // Canbia el valor de la bandera.
+                    contador++;
+                    aux = aux.adelante;
+                } else{
+                    // Avansa al Enlace. nodo.
+                    aux = aux.adelante;
+                }
             }
         }while(aux != null);
 
@@ -187,20 +207,44 @@ public class ListaDoble {
         aux = cabeza;
 
         do{
-            if (aux.getDvd().getTitulo().toLowerCase().contains(titulo.toLowerCase())){
-
+            if(tipo.equalsIgnoreCase("titulo")){
+            if (aux.getDvd().getTitulo().toLowerCase().contains(dato.toLowerCase())){
+                // Cambia el valor de la bandera.
                 lista[contador] = aux.getDvd();
                 contador++;
                 aux = aux.adelante;
-            }
-            else{
+            } else{
+                // Avansa al Enlace. nodo.
                 aux = aux.adelante;
             }
+        }else if (tipo.equalsIgnoreCase("calificacion")){
+            if (aux.getDvd().getCalificacion().toLowerCase().contains(dato.toLowerCase())){
+                // Canbia el valor de la bandera.
+                lista[contador] = aux.getDvd();
+                contador++;
+                aux = aux.adelante;
+            } else{
+                // Avansa al Enlace. nodo.
+                aux = aux.adelante;
+            }
+        }else{
+                if (aux.getDvd().getVersion().toLowerCase().contains(dato.toLowerCase())){
+                    // Canbia el valor de la bandera.
+                    lista[contador] = aux.getDvd();
+                    contador++;
+                    aux = aux.adelante;
+                } else{
+                    // Avansa al Enlace. nodo.
+                    aux = aux.adelante;
+                }
+         }
         }while(aux != null);
 
         // Retorna el resultado de la bandera.
         return lista;
     }
+
+
 
     public Pelicula[] ordenarListaPorPrecios(Pelicula[] lista, int numero){
 

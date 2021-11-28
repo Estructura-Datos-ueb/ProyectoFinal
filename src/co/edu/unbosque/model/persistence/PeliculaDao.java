@@ -77,7 +77,7 @@ public class PeliculaDao {
 
     }
     public void modificarCsv (){
-        String path="data/DVD1.csv";
+        String path="data/DVD.csv";
         line="";
         try {
             fw = new FileWriter(path);
