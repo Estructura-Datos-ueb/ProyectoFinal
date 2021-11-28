@@ -2,6 +2,7 @@ package co.edu.unbosque.model;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Locale;
 
 public class ListaDoble {
 
@@ -155,6 +156,48 @@ public class ListaDoble {
             System.out.println(lista[i].toString());
         }
         lista = ordenarListaPorPrecios(lista, numero);
+        // Retorna el resultado de la bandera.
+        return lista;
+    }
+
+    public Pelicula[] buscarPorTitulo(String titulo){
+        // Crea una copia de la lista.
+        Nodo aux = cabeza;
+        int contador = 0;
+        // Bandera para indicar si el valor existe.
+        // Recorre la lista hasta encontrar el elemento o hasta
+        // llegar al primer nodo nuevamente.
+        do{
+            // Consulta si el valor del nodo es igual al de referencia.
+            if (aux.getDvd().getTitulo().toLowerCase().contains(titulo.toLowerCase())){
+                // Canbia el valor de la bandera.
+                contador++;
+                aux = aux.adelante;
+            }
+            else{
+                // Avansa al Enlace. nodo.
+                aux = aux.adelante;
+            }
+        }while(aux != null);
+
+        Pelicula[] lista = new Pelicula[contador];
+
+        contador = 0;
+
+        aux = cabeza;
+
+        do{
+            if (aux.getDvd().getTitulo().toLowerCase().contains(titulo.toLowerCase())){
+
+                lista[contador] = aux.getDvd();
+                contador++;
+                aux = aux.adelante;
+            }
+            else{
+                aux = aux.adelante;
+            }
+        }while(aux != null);
+
         // Retorna el resultado de la bandera.
         return lista;
     }

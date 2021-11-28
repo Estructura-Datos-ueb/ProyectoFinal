@@ -1,5 +1,6 @@
 package co.edu.unbosque.controller;
 
+import co.edu.unbosque.model.ArbolBinarioBusqueda;
 import co.edu.unbosque.model.Nodo;
 import co.edu.unbosque.model.Pelicula;
 import co.edu.unbosque.view.ViewConsole;
@@ -14,10 +15,14 @@ public class Controller {
     private PeliculaDao dvdCsv;
     private ListaDoble listaDoble;
     ListaDoble listaEliminar;
+    private ArbolBinarioBusqueda arbolId;
+    private ArbolBinarioBusqueda arbolTitulo;
 
     private int caso;
 
     public Controller (){
+        //arbolId = new ArbolBinarioBusqueda("id");
+        //arbolTitulo = new ArbolBinarioBusqueda("titulo");
         v = new ViewConsole();
         dvdCsv = new PeliculaDao();
         listaDoble = new ListaDoble();
@@ -27,7 +32,11 @@ public class Controller {
     }
     
     public void start() {
-        dvdCsv.leerCSV();
+        dvdCsv.leerCSV(arbolId,arbolTitulo);
+        //arbolId = dvdCsv.getArbolId();
+        //arbolTitulo = dvdCsv.getArbolTitulo();
+
+
         listaDoble = dvdCsv.getListaDoble();
         mostrarNodos();
         v.mostrarInformacionConsola("busqueda");
@@ -56,18 +65,24 @@ public class Controller {
                 "22222"));
         System.out.println("\nEditar:     \n");
         //mostrarNodos();
-        try{
-            String genero = JOptionPane.showInputDialog("Ingrese el Genero que desea buscar");
-            int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de peliculas que desea mostrar"));
+//        try{
+//            String genero = JOptionPane.showInputDialog("Ingrese el Genero que desea buscar");
+//            int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de peliculas que desea mostrar"));
+//
+//            Pelicula[] pelis = listaDoble.ordenarPorGeneroMasCostosos(genero,numero);
+//            v.imprimirLista(pelis);
+//
+//        }catch(Exception e ){
+//            e.printStackTrace();
+//        }
 
-            Pelicula[] pelis = listaDoble.ordenarPorGeneroMasCostosos(genero,numero);
-            v.imprimirLista(pelis);
-
-        }catch(Exception e ){
-            e.printStackTrace();
-        }
-
-
+        String titulo = JOptionPane.showInputDialog("Indique el titulo de la pelicula que desea buscar");
+        Pelicula[] pe = listaDoble.buscarPorTitulo(titulo);
+//        Pelicula resultadoUnico = arbolTitulo.buscar(new Pelicula(titulo, "","",
+//                "", "", "",
+//                "", "", "", "")).getDato();
+        v.imprimirLista(pe);
+        //v.mostrarInformacion("Resultado Único: " + resultadoUnico);
 
 
         // se debe hacer el set de la lista doble en cual cargo todos lo datos del csv

@@ -1,8 +1,6 @@
 package co.edu.unbosque.model.persistence;
 
-import co.edu.unbosque.model.ListaDoble;
-import co.edu.unbosque.model.Nodo;
-import co.edu.unbosque.model.Pelicula;
+import co.edu.unbosque.model.*;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -23,12 +21,16 @@ public class PeliculaDao {
     private  Pelicula dvd;
     private int cantidadDVD;
     private ListaDoble listaDoble;
+    private ArbolBinarioBusqueda arbolId;
+    private ArbolBinarioBusqueda arbolTitulo;
 
     public PeliculaDao() {
         listaDoble = new ListaDoble();
     }
-    public void leerCSV() {
-        String path="data/DVD1.csv";
+    public void leerCSV(ArbolBinarioBusqueda id, ArbolBinarioBusqueda titulos) {
+//        this.arbolId = id;
+//        this.arbolTitulo = titulos;
+        String path="data/DVD.csv";
         line="";
         try {
             fr = new FileReader(path);
@@ -39,11 +41,6 @@ public class PeliculaDao {
                 String [] fields = line.split(";");
 
                 if(!fields[0].equals("T�tulo")){
-
-                    for (int j = 0; j < fields.length; j++) {
-                        System.out.println("Campo " + j + " " + fields[j]);
-                    }
-
 
                      String titulo=fields[0];
                      String estudio=fields[1];
@@ -56,6 +53,10 @@ public class PeliculaDao {
                      String dateIngreso=fields[8];
                      String Id=fields[9];
                     dvd = new Pelicula(titulo,estudio,estado,version,precio,calificacion,dateDebut,genero,dateIngreso,Id);
+//                    if(!Id.equalsIgnoreCase("id")) {
+//                        id.insertar(dvd);
+//                        titulos.insertar(dvd);
+//                    }
                     if(i==0){
                         listaDoble.insertarCabezaLista(dvd);
                     }else{
@@ -66,11 +67,11 @@ public class PeliculaDao {
                 line = br.readLine();
             }
             cantidadDVD= i;
-            System.out.println(cantidadDVD);
+
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -122,5 +123,21 @@ public class PeliculaDao {
 
     public void setListaDoble(ListaDoble listaDoble) {
         this.listaDoble = listaDoble;
+    }
+
+    public ArbolBinarioBusqueda getArbolId() {
+        return arbolId;
+    }
+
+    public void setArbolId(ArbolBinarioBusqueda arbolId) {
+        this.arbolId = arbolId;
+    }
+
+    public ArbolBinarioBusqueda getArbolTitulo() {
+        return arbolTitulo;
+    }
+
+    public void setArbolTitulo(ArbolBinarioBusqueda arbolTitulo) {
+        this.arbolTitulo = arbolTitulo;
     }
 }
