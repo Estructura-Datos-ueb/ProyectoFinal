@@ -40,30 +40,34 @@ public class PeliculaDao {
             while (null!=line) {
                 String [] fields = line.split(";");
 
-                if(!fields[0].equals("T�tulo")){
 
-                     String titulo=fields[0];
-                     String estudio=fields[1];
-                     String estado=fields[2];
-                     String version=fields[3];
-                     String precio=fields[4];
-                     String calificacion=fields[5];
-                     String dateDebut=fields[6];
-                     String genero=fields[7];
-                     String dateIngreso=fields[8];
-                     String Id=fields[9];
-                    dvd = new Pelicula(titulo,estudio,estado,version,precio,calificacion,dateDebut,genero,dateIngreso,Id);
-//                    if(!Id.equalsIgnoreCase("id")) {
-//                        id.insertar(dvd);
-//                        titulos.insertar(dvd);
-//                    }
-                    if(i==0){
-                        listaDoble.insertarCabezaLista(dvd);
-                    }else{
-                        listaDoble.insertarDespues(listaDoble.getActual(), dvd);
+                    if(fields.length<11){
+                            try{
+                                String titulo=fields[0];
+                                String estudio=fields[1];
+                                String estado=fields[2];
+                                String version=fields[3];
+                                String precio=fields[4];
+                                String calificacion=fields[5];
+                                String dateDebut=fields[6];
+                                String genero=fields[7];
+                                String dateIngreso=fields[8];
+                                String Id=fields[9];
+                                int id1 = Integer.parseInt(Id);
+                                dvd = new Pelicula(titulo,estudio,estado,version,precio,calificacion,dateDebut,genero,dateIngreso,Id);
+
+                                if(i==0){
+                                    listaDoble.insertarCabezaLista(dvd);
+                                }else{
+                                    listaDoble.insertarDespues(listaDoble.getActual(), dvd);
+                                }
+                                i++;
+
+                            } catch (NumberFormatException e) {
+                                //System.out.println("No agregado inconsistencia en los datos");
+                            }
                     }
-                    i++;
-                }
+
                 line = br.readLine();
             }
             cantidadDVD= i;

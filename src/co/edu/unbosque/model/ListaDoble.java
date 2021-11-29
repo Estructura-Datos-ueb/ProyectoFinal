@@ -265,6 +265,63 @@ public class ListaDoble {
         return orden;
     }
 
+    public Pelicula[] rangoDebut(String rango){
+        Nodo ragoDebut = cabeza;
+        String[] rang = rango.split(",");
+
+        int rangoMenor = Integer.parseInt(rang[0]);
+        int rangoMayor = Integer.parseInt(rang[1]);
+        int tamaño= 283509;
+        Pelicula[] peli = new Pelicula[tamaño];
+        int aux=0;
+        try{
+            for(int i=0;i< tamanio;i++){
+                if(!(ragoDebut.getDvd().getDateDebut()).equalsIgnoreCase("Ano")){
+                    if(!(ragoDebut.getDvd().getDateDebut()).equalsIgnoreCase("N.A")){
+                        int rangoCompa = Integer.parseInt( ragoDebut.getDvd().getDateDebut());
+                        if(rangoCompa>=rangoMenor&&rangoCompa<=rangoMayor){
+                            Pelicula rangoDeB = ragoDebut.getDvd();
+                            peli [aux] =  rangoDeB;
+                            aux++;
+                        }
+                    }
+                }
+                ragoDebut=ragoDebut.adelante;
+            }
+        } catch (NumberFormatException e) {
+            return peli;
+        }
+        catch (NullPointerException e) {
+            return peli;
+        }
+        return peli;
+    }
+
+    public Pelicula[] filtGenero(String genero){
+        Nodo generos = cabeza;
+        int tamaño= 283509;
+        Pelicula[] peli = new Pelicula[tamaño];
+        int aux=0;
+        try{
+            for(int i=0;i< tamanio;i++){
+                    if(!(generos.getDvd().getDateDebut()).equalsIgnoreCase("Ano")){
+                        if(genero.equalsIgnoreCase(generos.getDvd().getGenero())){
+                            Pelicula Generos = generos.getDvd();
+                            peli [aux] =  Generos;
+                            aux++;
+                        }
+                        generos=generos.adelante;
+
+                    }
+                }
+
+            }
+        catch (NullPointerException e) {
+            return peli;
+        }
+        return peli;
+    }
+
 
 
     public Nodo getCabeza() {

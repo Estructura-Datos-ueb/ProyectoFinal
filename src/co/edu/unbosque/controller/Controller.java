@@ -76,6 +76,16 @@ public class Controller {
 //            e.printStackTrace();
 //        }
 
+
+        String rango = JOptionPane.showInputDialog("Rango de años debut (anio1,anio2)");
+        Pelicula[] pe1 = listaDoble.rangoDebut(rango);
+        v.imprimirLista(pe1);
+
+        String generos = JOptionPane.showInputDialog("Ingrese el genero de las peliculas");
+        Pelicula[] pe2 = listaDoble.filtGenero(generos);
+        v.imprimirLista(pe2);
+
+
         String titulo = JOptionPane.showInputDialog("Indique el titulo de la pelicula que desea buscar");
         Pelicula[] pe = listaDoble.buscarPorCategoria(titulo, "titulo");
 //        Pelicula resultadoUnico = arbolTitulo.buscar(new Pelicula(titulo, "","",

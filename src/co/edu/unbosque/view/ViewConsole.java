@@ -25,9 +25,17 @@ public class ViewConsole {
 
     public void imprimirLista(Pelicula[] lista){
         System.out.println("Resultados Encontrados: ");
-        for (int i = 0; i < lista.length; i++) {
-            System.out.println(lista[i]);
+        try{
+            for (int i = 0; i < lista.length; i++) {
+                if(lista[i].equals(null)){
+                    break;
+                }
+                System.out.println(lista[i]);
+            }
+        } catch (NullPointerException e) {
+
         }
+
 
     }
 
