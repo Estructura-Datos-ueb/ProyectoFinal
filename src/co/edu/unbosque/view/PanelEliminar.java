@@ -27,13 +27,13 @@ public class PanelEliminar extends JPanel {
 		setLayout(null);
 		setBackground(new Color(100,177,255));
 		 
-		etiqueta_titulo = new JLabel("Módulo de Eliminar Película");
+		etiqueta_titulo = new JLabel("Modulo de Eliminar Pelicula");
 		Font fuente=new Font("Dialog", Font.BOLD, 18);
 		etiqueta_titulo.setFont(fuente);
 		etiqueta_titulo.setBounds(199, 30, 400, 30);
 		add(etiqueta_titulo);
 		
-		etiqueta_id = new JLabel("ID de la película:");
+		etiqueta_id = new JLabel("ID de la pelicula:");
 		etiqueta_id.setBounds(20, 100, 200, 30);
 		add(etiqueta_id);
 		
@@ -41,7 +41,7 @@ public class PanelEliminar extends JPanel {
 		campoTexto_id.setBounds(170, 100, 250, 30);
 		add(campoTexto_id);
 		
-		etiqueta_titulo_pelicula = new JLabel("Título de la Película:");
+		etiqueta_titulo_pelicula = new JLabel("Titulo de la Pelicula:");
 		etiqueta_titulo_pelicula.setBounds(20, 150, 200, 30);
 		add(etiqueta_titulo_pelicula);
 		
@@ -49,7 +49,7 @@ public class PanelEliminar extends JPanel {
 		campoTexto_titulo_pelicula.setBounds(170, 150, 250, 30);
 		add(campoTexto_titulo_pelicula);
 		
-		etiqueta_estado = new JLabel("Estado de la Película:");
+		etiqueta_estado = new JLabel("Estado de la Pelicula:");
 		etiqueta_estado.setBounds(20, 200, 200, 30);
 		add(etiqueta_estado);
 		
@@ -59,14 +59,17 @@ public class PanelEliminar extends JPanel {
 		
 		buscar = new JButton("Buscar");
 		buscar.setBounds(430, 100, 80, 27);
+		buscar.setActionCommand("busquedaEliminar");
 		add(buscar);
 		
-		eliminar = new JButton("Borrar Película");
+		eliminar = new JButton("Borrar Pelicula");
 		eliminar.setBounds(200, 250, 150, 27);
+		eliminar.setActionCommand("eliminarPelicula");
 		add(eliminar);
 		
 		limpiar = new JButton("Limpiar Formulario");
 		limpiar.setBounds(370, 250, 150, 27);
+		limpiar.setActionCommand("limipiarEliminar");
 		add(limpiar);
 		
 		
@@ -77,4 +80,5 @@ public class PanelEliminar extends JPanel {
 		campoTexto_id.setText("");
 		campoTexto_estado.setText("");
 	}
+
 }

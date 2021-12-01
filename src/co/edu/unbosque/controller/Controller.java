@@ -4,14 +4,18 @@ import co.edu.unbosque.model.ArbolBinarioBusqueda;
 import co.edu.unbosque.model.Nodo;
 import co.edu.unbosque.model.Pelicula;
 import co.edu.unbosque.view.ViewConsole;
+import co.edu.unbosque.view.VentanaPrincipal;
 import co.edu.unbosque.model.persistence.PeliculaDao;
 import co.edu.unbosque.model.ListaDoble;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Controller {
+public class Controller implements ActionListener {
 
     private ViewConsole v;
+    private VentanaPrincipal ventana_principal;
     private PeliculaDao dvdCsv;
     private ListaDoble listaDoble;
     ListaDoble listaEliminar;
@@ -20,16 +24,117 @@ public class Controller {
 
     private int caso;
 
-    public Controller (){
+    public Controller () {
         //arbolId = new ArbolBinarioBusqueda("id");
         //arbolTitulo = new ArbolBinarioBusqueda("titulo");
+        ventana_principal = new VentanaPrincipal();
         v = new ViewConsole();
         dvdCsv = new PeliculaDao();
         listaDoble = new ListaDoble();
-        v.mostrarInformacion("Binvenidos Proyecto Final");
+       // v.mostrarInformacion("Binvenidos Proyecto Final");
         listaEliminar = new ListaDoble();
-        start();
+        asignarOyentes();
+        //start();
     }
+
+    public void asignarOyentes() {
+
+
+
+        ventana_principal.panel_botones.ingresar.addActionListener(this);
+        ventana_principal.panel_ingresar.registrar.addActionListener(this);
+        ventana_principal.panel_ingresar.limpiar.addActionListener(this);
+
+        ventana_principal.panel_botones.buscar.addActionListener(this);
+        //ventana_principal.panel_ver.buscar.addActionListener(this);
+        //ventana_principal.panel_ver.limpiar.addActionListener(this);
+
+        ventana_principal.panel_botones.modificar.addActionListener(this);
+        ventana_principal.panel_modificar.actualizar.addActionListener(this);
+        ventana_principal.panel_modificar.limpiar.addActionListener(this);
+        ventana_principal.panel_modificar.buscar.addActionListener(this);
+
+        ventana_principal.panel_botones.eliminar.addActionListener(this);
+        ventana_principal.panel_eliminar.eliminar.addActionListener(this);
+        ventana_principal.panel_eliminar.limpiar.addActionListener(this);
+        ventana_principal.panel_eliminar.buscar.addActionListener(this);
+
+        ventana_principal.panel_buscar.buscar.addActionListener(this);
+        ventana_principal.panel_buscar.limpiar.addActionListener(this);
+
+        ventana_principal.panel_botones.mostrarLista.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        String command = e.getActionCommand();
+        switch (command){
+
+            case "IngresoRegistro":
+                ventana_principal.visibilidadPanelIngresar(true);
+                ventana_principal.visibilidadPanelBuscar(false);
+                ventana_principal.visibilidadPanelEliminar(false);
+                ventana_principal.visibilidadPanelModificar(false);
+
+                break;
+            case "registrar":
+                break;
+            case "limpiar":
+                break;
+
+
+            case "BuscarPelicula":
+                ventana_principal.visibilidadPanelBuscar(true);
+                ventana_principal.visibilidadPanelIngresar(false);
+                ventana_principal.visibilidadPanelEliminar(false);
+                ventana_principal.visibilidadPanelModificar(false);
+                break;
+
+            case "buscarPelicula":
+                break;
+            case "limpiarPanelBusqueda":
+                System.out.println("asdf");
+                ventana_principal.panel_buscar.limpiarFormulario();
+                break;
+            case "EliminarPelicula":
+                ventana_principal.visibilidadPanelEliminar(true);
+                ventana_principal.visibilidadPanelIngresar(false);
+                ventana_principal.visibilidadPanelBuscar(false);
+                ventana_principal.visibilidadPanelModificar(false);
+
+
+
+                break;
+            case "eliminarPelicula":
+                break;
+            case "busquedaEliminar":
+                break;
+            case "limipiarEliminar":
+                ventana_principal.panel_eliminar.limpiarFormulario();
+                break;
+            case "ModificarPelicula":
+                ventana_principal.visibilidadPanelModificar(true);
+                ventana_principal.visibilidadPanelEliminar(false);
+                ventana_principal.visibilidadPanelIngresar(false);
+                ventana_principal.visibilidadPanelBuscar(false);
+
+                break;
+            case "buscarMofificar":
+                break;
+            case "actualizarPelicula":
+                break;
+            case "limipiarPanelModifi":
+                ventana_principal.panel_modificar.limpiarFormulario();
+                break;
+        }
+
+    }
+    /*
+    limpiar.setActionCommand("limpiarPanelBusqueda");
+    buscar.setActionCommand("buscarPelicula");
+     */
+
     
     public void start() {
         dvdCsv.leerCSV(arbolId,arbolTitulo);
@@ -144,5 +249,6 @@ public class Controller {
       }
 
     }
+
 
 }

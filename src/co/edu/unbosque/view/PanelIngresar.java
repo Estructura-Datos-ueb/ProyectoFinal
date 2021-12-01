@@ -45,14 +45,14 @@ public class PanelIngresar extends JPanel {
 		setLayout(null);
 		setBackground(new Color(100,177,255));
 		
-		etiqueta_titulo = new JLabel("Modulo de Ingreso de Película");
+		etiqueta_titulo = new JLabel("Modulo de Ingreso de Pelicula");
 		Font fuente=new Font("Dialog", Font.BOLD, 18);
 		etiqueta_titulo.setFont(fuente);
 		etiqueta_titulo.setBounds(199, 30, 400, 30);
 		add(etiqueta_titulo);
 		
 		
-		etiqueta_campoTexto_titulo_pelicula = new JLabel("Título:");
+		etiqueta_campoTexto_titulo_pelicula = new JLabel("Titulo:");
 		etiqueta_campoTexto_titulo_pelicula.setBounds(20, 100, 200, 30);
 		add(etiqueta_campoTexto_titulo_pelicula);
 		
@@ -95,7 +95,7 @@ public class PanelIngresar extends JPanel {
     	campoTexto_precio.setBounds(300, 95, 100, 30);
     	add(campoTexto_precio);
     	
-    	etiqueta_clasificacion = new JLabel("Clasificación: ");
+    	etiqueta_clasificacion = new JLabel("Clasificacion: ");
     	etiqueta_clasificacion.setBounds(220, 10, 200, 300);
     	add(etiqueta_clasificacion);
     	
@@ -104,7 +104,7 @@ public class PanelIngresar extends JPanel {
     	escoger_Clasificacion.setBounds(300, 150, 100, 30);
     	add(escoger_Clasificacion);
     	 	
-    	etiqueta_anio = new JLabel("Año:");
+    	etiqueta_anio = new JLabel("Anio:");
     	etiqueta_anio.setBounds(220, 200, 200, 30);
     	add(etiqueta_anio );
     	
@@ -112,13 +112,14 @@ public class PanelIngresar extends JPanel {
     	campoTexto_anio.setBounds(300, 200, 101, 30);
     	add(campoTexto_anio);
     	
-		registrar = new JButton("Registrar Película");
+		registrar = new JButton("Registrar Pelicula");
 		registrar.setBounds(260, 250, 150, 27);
+		registrar.setActionCommand("registrar");
 		add(registrar);
     	
 		//-------------------------------------------
 		
-    	etiqueta_genero= new JLabel("Género");
+    	etiqueta_genero= new JLabel("Genero");
     	etiqueta_genero.setBounds(440, 95, 200, 30);
         add(etiqueta_genero);
         
@@ -126,7 +127,7 @@ public class PanelIngresar extends JPanel {
     	campoTexto_genero.setBounds(550, 95, 100, 30);
     	add(campoTexto_genero);
     	
-    	etiqueta_fecha_pub= new JLabel("Fecha Publicación:");
+    	etiqueta_fecha_pub= new JLabel("Fecha Publicacion:");
     	etiqueta_fecha_pub.setBounds(440, 10, 200, 300);
         add(etiqueta_fecha_pub);
         
@@ -134,7 +135,7 @@ public class PanelIngresar extends JPanel {
     	campoTexto_fecha_pub.setBounds(550, 150, 100, 30);
     	add(campoTexto_fecha_pub);
         
-    	etiqueta_id= new JLabel("Número de ID:");
+    	etiqueta_id= new JLabel("Numero de ID:");
     	etiqueta_id.setBounds(440, 200, 200, 30);
         add(etiqueta_id);
         
@@ -144,6 +145,7 @@ public class PanelIngresar extends JPanel {
     	
 		limpiar = new JButton("Limpiar Formulario");
 		limpiar.setBounds(440, 250, 150, 27);
+		limpiar.setActionCommand("limpiar");
 		add(limpiar);
 			
 	}
@@ -159,5 +161,100 @@ public class PanelIngresar extends JPanel {
 		campoTexto_fecha_pub.setText("");
 		campoTexto_id.setText("");
 	}
-	
+
+	public JButton getRegistrar() {
+		return registrar;
+	}
+
+	public void setRegistrar(JButton registrar) {
+		this.registrar = registrar;
+	}
+
+	public JButton getLimpiar() {
+		return limpiar;
+	}
+
+	public void setLimpiar(JButton limpiar) {
+		this.limpiar = limpiar;
+	}
+
+	public JTextField getCampoTexto_titulo_pelicula() {
+		return campoTexto_titulo_pelicula;
+	}
+
+	public void setCampoTexto_titulo_pelicula(JTextField campoTexto_titulo_pelicula) {
+		this.campoTexto_titulo_pelicula = campoTexto_titulo_pelicula;
+	}
+
+	public JTextField getCampoTexto_estudio() {
+		return campoTexto_estudio;
+	}
+
+	public void setCampoTexto_estudio(JTextField campoTexto_estudio) {
+		this.campoTexto_estudio = campoTexto_estudio;
+	}
+
+	public JTextField getCampoTexto_estado() {
+		return campoTexto_estado;
+	}
+
+	public void setCampoTexto_estado(JTextField campoTexto_estado) {
+		this.campoTexto_estado = campoTexto_estado;
+	}
+
+	public JTextField getCampoTexto_version() {
+		return campoTexto_version;
+	}
+
+	public void setCampoTexto_version(JTextField campoTexto_version) {
+		this.campoTexto_version = campoTexto_version;
+	}
+
+	public JTextField getCampoTexto_anio() {
+		return campoTexto_anio;
+	}
+
+	public void setCampoTexto_anio(JTextField campoTexto_anio) {
+		this.campoTexto_anio = campoTexto_anio;
+	}
+
+	public JTextField getCampoTexto_genero() {
+		return campoTexto_genero;
+	}
+
+	public void setCampoTexto_genero(JTextField campoTexto_genero) {
+		this.campoTexto_genero = campoTexto_genero;
+	}
+
+	public JTextField getCampoTexto_precio() {
+		return campoTexto_precio;
+	}
+
+	public void setCampoTexto_precio(JTextField campoTexto_precio) {
+		this.campoTexto_precio = campoTexto_precio;
+	}
+
+	public JComboBox getEscoger_Clasificacion() {
+		return escoger_Clasificacion;
+	}
+
+	public void setEscoger_Clasificacion(JComboBox escoger_Clasificacion) {
+		this.escoger_Clasificacion = escoger_Clasificacion;
+	}
+
+	public JTextField getCampoTexto_fecha_pub() {
+		return campoTexto_fecha_pub;
+	}
+
+	public void setCampoTexto_fecha_pub(JTextField campoTexto_fecha_pub) {
+		this.campoTexto_fecha_pub = campoTexto_fecha_pub;
+	}
+
+	public JTextField getCampoTexto_id() {
+		return campoTexto_id;
+	}
+
+	public void setCampoTexto_id(JTextField campoTexto_id) {
+		this.campoTexto_id = campoTexto_id;
+	}
 }

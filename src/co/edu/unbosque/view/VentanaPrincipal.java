@@ -19,12 +19,14 @@ public class VentanaPrincipal extends JFrame {
 	public PanelModificar panel_modificar;
 	public PanelEliminar panel_eliminar;
 	public PanelMostrarLista panel_mostrarLista;
+
 	
 	public VentanaPrincipal() {
+
 		setSize(850, 380);
 		setTitle("Proyecto final ED");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setResizable(false);
+	    setResizable(true);
 	    setLocationRelativeTo(null);
 	    
 		getContentPane().setLayout(null);
@@ -54,6 +56,22 @@ public class VentanaPrincipal extends JFrame {
 		getContentPane().add(panel_mostrarLista);
 		
 	    setVisible(true);
+	}
+
+	public void visibilidadPanelIngresar(boolean visibility){
+		panel_ingresar.setVisible(visibility);
+
+	}
+
+	public void visibilidadPanelBuscar(boolean visibility){
+			panel_buscar.setVisible(visibility);
+	}
+
+	public void visibilidadPanelEliminar(boolean visibility){
+		panel_eliminar.setVisible(visibility);
+	}
+	public void visibilidadPanelModificar(boolean visibility){
+		panel_modificar.setVisible(visibility);
 	}
 
 }
