@@ -12,52 +12,50 @@ public class PanelBuscar extends JPanel {
 	
 	public JButton buscar;
 	public JButton limpiar;
-	public JTextField nombre;
-	public JTextField edad;
-	public JTextField dni;
-	JLabel etiqueta_nombre;
-	JLabel etiqueta_edad;
-	JLabel etiqueta_dni;
+	public JButton eliminar;
+	public JTextField campoTexto_titulo_pelicula;
+	public JTextField campoTexto_estado;
+	public JTextField campoTexto_id;
+	JLabel etiqueta_titulo_pelicula;
+	JLabel etiqueta_estado;
+	JLabel etiqueta_id;
 	JLabel etiqueta_titulo;
 	
 	public PanelBuscar() {
 		
-		setBounds(250, 25, 530, 300);
+		setBounds(250, 25, 660, 300);
 		setLayout(null);
 		setBackground(new Color(100,177,255));
-		
-		etiqueta_titulo = new JLabel("Modulo de Ver de Persona");
+		 
+		etiqueta_titulo = new JLabel("Módulo de Eliminar Película");
 		Font fuente=new Font("Dialog", Font.BOLD, 18);
 		etiqueta_titulo.setFont(fuente);
-		etiqueta_titulo.setBounds(150, 20, 400, 30);
+		etiqueta_titulo.setBounds(199, 30, 400, 30);
 		add(etiqueta_titulo);
 		
+		etiqueta_id = new JLabel("ID de la película:");
+		etiqueta_id.setBounds(20, 100, 200, 30);
+		add(etiqueta_id);
 		
-		etiqueta_nombre = new JLabel("Nombres de la Persona:");
-		etiqueta_nombre.setBounds(20, 150, 200, 30);
-		add(etiqueta_nombre);
+		campoTexto_id = new JTextField();
+		campoTexto_id.setBounds(170, 100, 250, 30);
+		add(campoTexto_id);
 		
-		nombre = new JTextField();
-		nombre.setBounds(170, 150, 250, 30);
-		nombre.setEnabled(false);
-		add(nombre);
+		etiqueta_titulo_pelicula = new JLabel("Título de la Película:");
+		etiqueta_titulo_pelicula.setBounds(20, 150, 200, 30);
+		add(etiqueta_titulo_pelicula);
 		
-		etiqueta_dni = new JLabel("Dni de la Persona:");
-		etiqueta_dni.setBounds(20, 100, 200, 30);
-		add(etiqueta_dni);
+		campoTexto_titulo_pelicula = new JTextField();
+		campoTexto_titulo_pelicula.setBounds(170, 150, 250, 30);
+		add(campoTexto_titulo_pelicula);
 		
-		dni = new JTextField();
-		dni.setBounds(170, 100, 250, 30);
-		add(dni);
+		etiqueta_estado = new JLabel("Estado de la Película:");
+		etiqueta_estado.setBounds(20, 200, 200, 30);
+		add(etiqueta_estado);
 		
-		etiqueta_edad = new JLabel("Edad de la Persona:");
-		etiqueta_edad.setBounds(20, 200, 200, 30);
-		add(etiqueta_edad);
-		
-		edad = new JTextField();
-		edad.setBounds(170, 200, 250, 30);
-		edad.setEnabled(false);
-		add(edad);
+		campoTexto_estado = new JTextField();
+		campoTexto_estado.setBounds(170, 200, 250, 30);
+		add(campoTexto_estado);
 		
 		buscar = new JButton("Buscar");
 		buscar.setBounds(430, 100, 80, 27);
@@ -71,8 +69,8 @@ public class PanelBuscar extends JPanel {
 	}
 	
 	public void limpiarFormulario() {
-		nombre.setText("");
-		dni.setText("");
-		edad.setText("");
+		campoTexto_titulo_pelicula.setText("");
+		campoTexto_id.setText("");
+		campoTexto_estado.setText("");
 	}
 }
