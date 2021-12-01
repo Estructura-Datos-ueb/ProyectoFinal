@@ -91,26 +91,30 @@ public class ListaDoble {
         // Recorre la lista hasta encontrar el elemento o hasta
         // llegar al primer nodo nuevamente.
         do{
+
+                if (referencia == aux.dvd){
+                    System.out.println("dentro if");
+                    // Canbia el valor de la bandera.
+                    encontrado = true;
+                    aux.dvd.setTitulo(cambio.getTitulo());
+                    aux.dvd.setEstudio(cambio.getEstudio());
+                    aux.dvd.setEstado(cambio.getEstado());
+                    aux.dvd.setVersion(cambio.getVersion());
+                    aux.dvd.setPrecio(cambio.getPrecio());
+                    aux.dvd.setCalificacion(cambio.getCalificacion());
+                    aux.dvd.setDateDebut(cambio.getDateDebut());
+                    aux.dvd.setGenero(cambio.getGenero());
+                    aux.dvd.setDateIngreso(cambio.getDateIngreso());
+                    aux.dvd.setId(cambio.getId());
+                }
+                else{
+                    // Avansa al Enlace. nodo.
+                    aux = aux.adelante;
+                }
+
             // Consulta si el valor del nodo es igual al de referencia.
-            if (referencia == aux.dvd){
-                // Canbia el valor de la bandera.
-                encontrado = true;
-                aux.dvd.setTitulo(cambio.getTitulo());
-                aux.dvd.setEstudio(cambio.getEstudio());
-                aux.dvd.setEstado(cambio.getEstado());
-                aux.dvd.setVersion(cambio.getVersion());
-                aux.dvd.setPrecio(cambio.getPrecio());
-                aux.dvd.setCalificacion(cambio.getCalificacion());
-                aux.dvd.setDateDebut(cambio.getDateDebut());
-                aux.dvd.setGenero(cambio.getGenero());
-                aux.dvd.setDateIngreso(cambio.getDateIngreso());
-                aux.dvd.setId(cambio.getId());
-            }
-            else{
-                // Avansa al Enlace. nodo.
-                aux = aux.adelante;
-            }
-        }while(aux != cabeza && encontrado != true);
+
+        }while(aux != cabeza && encontrado != true && aux!=null);
         // Retorna el resultado de la bandera.
         return aux;
     }

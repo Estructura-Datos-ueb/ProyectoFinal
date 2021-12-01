@@ -9,15 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class PanelEliminar extends JPanel {
-	
-	public JButton buscar;
+
 	public JButton limpiar;
 	public JButton eliminar;
-	public JTextField campoTexto_titulo_pelicula;
-	public JTextField campoTexto_estado;
-	public JTextField campoTexto_id;
-	JLabel etiqueta_titulo_pelicula;
-	JLabel etiqueta_estado;
+	public JTextField campoTexto_id1;
+
 	JLabel etiqueta_id;
 	JLabel etiqueta_titulo;
 	
@@ -37,31 +33,11 @@ public class PanelEliminar extends JPanel {
 		etiqueta_id.setBounds(20, 100, 200, 30);
 		add(etiqueta_id);
 		
-		campoTexto_id = new JTextField();
-		campoTexto_id.setBounds(170, 100, 250, 30);
-		add(campoTexto_id);
-		
-		etiqueta_titulo_pelicula = new JLabel("Titulo de la Pelicula:");
-		etiqueta_titulo_pelicula.setBounds(20, 150, 200, 30);
-		add(etiqueta_titulo_pelicula);
-		
-		campoTexto_titulo_pelicula = new JTextField();
-		campoTexto_titulo_pelicula.setBounds(170, 150, 250, 30);
-		add(campoTexto_titulo_pelicula);
-		
-		etiqueta_estado = new JLabel("Estado de la Pelicula:");
-		etiqueta_estado.setBounds(20, 200, 200, 30);
-		add(etiqueta_estado);
-		
-		campoTexto_estado = new JTextField();
-		campoTexto_estado.setBounds(170, 200, 250, 30);
-		add(campoTexto_estado);
-		
-		buscar = new JButton("Buscar");
-		buscar.setBounds(430, 100, 80, 27);
-		buscar.setActionCommand("busquedaEliminar");
-		add(buscar);
-		
+		campoTexto_id1 = new JTextField();
+		campoTexto_id1.setBounds(170, 100, 250, 30);
+		add(campoTexto_id1);
+
+
 		eliminar = new JButton("Borrar Pelicula");
 		eliminar.setBounds(200, 250, 150, 27);
 		eliminar.setActionCommand("eliminarPelicula");
@@ -76,9 +52,8 @@ public class PanelEliminar extends JPanel {
 	}
 	
 	public void limpiarFormulario() {
-		campoTexto_titulo_pelicula.setText("");
-		campoTexto_id.setText("");
-		campoTexto_estado.setText("");
+		campoTexto_id1.setText("");
+
 	}
 
 }

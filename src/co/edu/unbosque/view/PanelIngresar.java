@@ -21,7 +21,7 @@ public class PanelIngresar extends JPanel {
 	public JTextField campoTexto_anio;
 	public JTextField campoTexto_genero;
 	public JTextField campoTexto_precio;
-	public JComboBox escoger_Clasificacion;
+	public JTextField campoTexto_clasificacion;
 	public JTextField campoTexto_fecha_pub;
 	public JTextField campoTexto_id;
 	
@@ -98,11 +98,11 @@ public class PanelIngresar extends JPanel {
     	etiqueta_clasificacion = new JLabel("Clasificacion: ");
     	etiqueta_clasificacion.setBounds(220, 10, 200, 300);
     	add(etiqueta_clasificacion);
-    	
-    	String[] list = {"------------------ ","6","12","24","36"};
-    	escoger_Clasificacion = new JComboBox(list);
-    	escoger_Clasificacion.setBounds(300, 150, 100, 30);
-    	add(escoger_Clasificacion);
+
+
+		campoTexto_clasificacion = new JTextField();
+		campoTexto_clasificacion.setBounds(300, 150, 100, 30);
+    	add(campoTexto_clasificacion);
     	 	
     	etiqueta_anio = new JLabel("Anio:");
     	etiqueta_anio.setBounds(220, 200, 200, 30);
@@ -145,7 +145,7 @@ public class PanelIngresar extends JPanel {
     	
 		limpiar = new JButton("Limpiar Formulario");
 		limpiar.setBounds(440, 250, 150, 27);
-		limpiar.setActionCommand("limpiar");
+		limpiar.setActionCommand("limpiarRegistro");
 		add(limpiar);
 			
 	}
@@ -158,6 +158,7 @@ public class PanelIngresar extends JPanel {
 		campoTexto_precio.setText("");
 		campoTexto_anio.setText("");
 		campoTexto_genero.setText("");
+		campoTexto_clasificacion.setText("");
 		campoTexto_fecha_pub.setText("");
 		campoTexto_id.setText("");
 	}
@@ -234,12 +235,12 @@ public class PanelIngresar extends JPanel {
 		this.campoTexto_precio = campoTexto_precio;
 	}
 
-	public JComboBox getEscoger_Clasificacion() {
-		return escoger_Clasificacion;
+	public JTextField getCampoTexto_clasificacion() {
+		return campoTexto_clasificacion;
 	}
 
-	public void setEscoger_Clasificacion(JComboBox escoger_Clasificacion) {
-		this.escoger_Clasificacion = escoger_Clasificacion;
+	public void setCampoTexto_clasificacion(JTextField campoTexto_clasificacion) {
+		this.campoTexto_clasificacion = campoTexto_clasificacion;
 	}
 
 	public JTextField getCampoTexto_fecha_pub() {
