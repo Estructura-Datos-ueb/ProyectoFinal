@@ -222,7 +222,9 @@ public class Controller implements ActionListener {
                 listaDoble.editarIterativo(peliModi,pelicula);
                 dvdCsv.setListaDoble(listaDoble);
                 dvdCsv.modificarCsv();
-                System.out.println("agregado");
+                v.mostrarInformacion("Se actualizo correctamente");
+                ventana_principal.panel_modificar.limpiarFormulario();
+                ventana_principal.panel_modificar.encontrado(false);
                 break;
             case "limipiarPanelModifi":
                 ventana_principal.panel_modificar.limpiarFormulario();

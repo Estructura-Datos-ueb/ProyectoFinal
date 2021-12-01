@@ -91,9 +91,7 @@ public class ListaDoble {
         // Recorre la lista hasta encontrar el elemento o hasta
         // llegar al primer nodo nuevamente.
         do{
-
-                if (referencia == aux.dvd){
-                    System.out.println("dentro if");
+                if (referencia.getId() == aux.dvd.getId()){
                     // Canbia el valor de la bandera.
                     encontrado = true;
                     aux.dvd.setTitulo(cambio.getTitulo());
@@ -114,7 +112,7 @@ public class ListaDoble {
 
             // Consulta si el valor del nodo es igual al de referencia.
 
-        }while(aux != cabeza && encontrado != true && aux!=null);
+        }while(aux != null && encontrado != true);
         // Retorna el resultado de la bandera.
         return aux;
     }
