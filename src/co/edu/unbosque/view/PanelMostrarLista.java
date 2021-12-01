@@ -32,7 +32,7 @@ public class PanelMostrarLista extends JPanel {
 
 	public void agregarTabla(Object datos[][]) {
 
-		String columnas[] = {"Nombre", "Dni", "edad", "Cantidad Dinero", "cuota", "Valor cuota" };
+		String columnas[] = {"Título", "Estudio", "Estado", "Versiones", "Precio", "Clasificación", "Año", "Género", "Fecha Publicación", "ID" };
 
 		tabla = new JTable(datos, columnas);
 		tabla.isEditing();
