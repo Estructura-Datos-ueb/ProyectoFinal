@@ -1,3 +1,4 @@
+
 package co.edu.unbosque.model;
 
 import java.util.Arrays;
@@ -60,7 +61,7 @@ public class ListaDoble {
 
     }
 
-    public Nodo buscarIterativo(Pelicula referencia){
+    public Nodo buscarIterativo(String id){
         // Crea una copia de la lista.
         Nodo aux = cabeza;
         // Bandera para indicar si el valor existe.
@@ -69,7 +70,7 @@ public class ListaDoble {
         // llegar al primer nodo nuevamente.
         do{
             // Consulta si el valor del nodo es igual al de referencia.
-            if (referencia == aux.dvd){
+            if (id.equalsIgnoreCase(aux.dvd.getId())){
                 // Canbia el valor de la bandera.
                 encontrado = true;
             }
@@ -208,26 +209,26 @@ public class ListaDoble {
 
         do{
             if(tipo.equalsIgnoreCase("titulo")){
-            if (aux.getDvd().getTitulo().toLowerCase().contains(dato.toLowerCase())){
-                // Cambia el valor de la bandera.
-                lista[contador] = aux.getDvd();
-                contador++;
-                aux = aux.adelante;
-            } else{
-                // Avansa al Enlace. nodo.
-                aux = aux.adelante;
-            }
-        }else if (tipo.equalsIgnoreCase("calificacion")){
-            if (aux.getDvd().getCalificacion().toLowerCase().contains(dato.toLowerCase())){
-                // Canbia el valor de la bandera.
-                lista[contador] = aux.getDvd();
-                contador++;
-                aux = aux.adelante;
-            } else{
-                // Avansa al Enlace. nodo.
-                aux = aux.adelante;
-            }
-        }else{
+                if (aux.getDvd().getTitulo().toLowerCase().contains(dato.toLowerCase())){
+                    // Cambia el valor de la bandera.
+                    lista[contador] = aux.getDvd();
+                    contador++;
+                    aux = aux.adelante;
+                } else{
+                    // Avansa al Enlace. nodo.
+                    aux = aux.adelante;
+                }
+            }else if (tipo.equalsIgnoreCase("calificacion")){
+                if (aux.getDvd().getCalificacion().toLowerCase().contains(dato.toLowerCase())){
+                    // Canbia el valor de la bandera.
+                    lista[contador] = aux.getDvd();
+                    contador++;
+                    aux = aux.adelante;
+                } else{
+                    // Avansa al Enlace. nodo.
+                    aux = aux.adelante;
+                }
+            }else{
                 if (aux.getDvd().getVersion().toLowerCase().contains(dato.toLowerCase())){
                     // Canbia el valor de la bandera.
                     lista[contador] = aux.getDvd();
@@ -237,7 +238,7 @@ public class ListaDoble {
                     // Avansa al Enlace. nodo.
                     aux = aux.adelante;
                 }
-         }
+            }
         }while(aux != null);
 
         // Retorna el resultado de la bandera.
@@ -304,18 +305,18 @@ public class ListaDoble {
         int aux=0;
         try{
             for(int i=0;i< tamanio;i++){
-                    if(!(generos.getDvd().getDateDebut()).equalsIgnoreCase("Ano")){
-                        if(genero.equalsIgnoreCase(generos.getDvd().getGenero())){
-                            Pelicula Generos = generos.getDvd();
-                            peli [aux] =  Generos;
-                            aux++;
-                        }
-                        generos=generos.adelante;
-
+                if(!(generos.getDvd().getDateDebut()).equalsIgnoreCase("Ano")){
+                    if(genero.equalsIgnoreCase(generos.getDvd().getGenero())){
+                        Pelicula Generos = generos.getDvd();
+                        peli [aux] =  Generos;
+                        aux++;
                     }
-                }
+                    generos=generos.adelante;
 
+                }
             }
+
+        }
         catch (NullPointerException e) {
             return peli;
         }
@@ -340,3 +341,6 @@ public class ListaDoble {
         this.actual = actual;
     }
 }
+
+
+

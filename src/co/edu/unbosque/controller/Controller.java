@@ -25,16 +25,14 @@ public class Controller implements ActionListener {
     private int caso;
 
     public Controller () {
-        //arbolId = new ArbolBinarioBusqueda("id");
-        //arbolTitulo = new ArbolBinarioBusqueda("titulo");
-        ventana_principal = new VentanaPrincipal();
+        arbolId = new ArbolBinarioBusqueda("id");
+        arbolTitulo = new ArbolBinarioBusqueda("titulo");
         v = new ViewConsole();
         dvdCsv = new PeliculaDao();
         listaDoble = new ListaDoble();
-       // v.mostrarInformacion("Binvenidos Proyecto Final");
+        v.mostrarInformacion("Binvenidos Proyecto Final");
         listaEliminar = new ListaDoble();
-        asignarOyentes();
-        //start();
+//        start();
     }
 
     public void asignarOyentes() {
@@ -138,75 +136,86 @@ public class Controller implements ActionListener {
     
     public void start() {
         dvdCsv.leerCSV(arbolId,arbolTitulo);
-        //arbolId = dvdCsv.getArbolId();
-        //arbolTitulo = dvdCsv.getArbolTitulo();
+        arbolId = dvdCsv.getArbolId();
 
 
         listaDoble = dvdCsv.getListaDoble();
         mostrarNodos();
-        v.mostrarInformacionConsola("busqueda");
-        Nodo nodoBuscado = listaDoble.buscarIterativo(listaDoble.getActual().dvd);
-        v.mostrarInformacionConsola(nodoBuscado.dvd.toString());
-        v.mostrarInformacionConsola("eliminacion");
-        Nodo nodoEliminar = listaDoble.getCabeza().adelante.adelante;
-        listaDoble.eliminar(nodoEliminar);
-        v.mostrarInformacionConsola(listaDoble.getCabeza().dvd.toString());
-        v.mostrarInformacionConsola("\nAñadir:\n");
+         String id = JOptionPane.showInputDialog("Ingrese Id");
+
+
+        try {
+            Nodo nodoEliminar = listaDoble.buscarIterativo(id);
+
+            arbolId.eliminar(nodoEliminar.dvd);
+            listaDoble.eliminar(nodoEliminar);
+        }catch (Exception e){
+        v.mostrarInformacion("Esa pelicula no existe");
+        }
+
+
         //Para anadir se le debe pasar de parametro una pelicula nueva al metodo insertarCabezaLista
-        Pelicula p = new Pelicula("Zootopia", "Disney Animation", "Fuera", "1",
-                "300", "PG", "2017", "Aventura", "17 de marzo de 2016",
-                "56454");
-
-        listaDoble.insertarCabezaLista(p);
-
-
-
-        //mostrarNodos();
-        //Para editar se debe buscar la pelicula usando el metodo buscar iterativo y
-        // luego pasarle otra instancia de pelicula con los datos actualizados
-        Nodo comprobar = listaDoble.editarIterativo(p,new Pelicula("Zootopia 2", "Disney Animation+", "No estrenada",
-                "1", "1000", "PG-13", "2030",
-                "Aventura", "17 de marzo de 2025",
-                "22222"));
-        System.out.println("\nEditar:     \n");
-        //mostrarNodos();
-//        try{
-//            String genero = JOptionPane.showInputDialog("Ingrese el Genero que desea buscar");
-//            int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de peliculas que desea mostrar"));
+//        Pelicula p = new Pelicula("Zootopia", "Disney Animation", "Fuera", "1",
+//                "300", "PG", "2017", "Aventura", "17 de marzo de 2016",
+//                "106128");
 //
-//            Pelicula[] pelis = listaDoble.ordenarPorGeneroMasCostosos(genero,numero);
-//            v.imprimirLista(pelis);
 //
-//        }catch(Exception e ){
-//            e.printStackTrace();
+//        try {
+//            arbolId.insertar(p);
+//            listaDoble.insertarCabezaLista(p);
+//        }catch (Exception e){
+//            v.mostrarInformacion("Ya existe esa peli");
 //        }
-
-
-        String rango = JOptionPane.showInputDialog("Rango de años debut (anio1,anio2)");
-        Pelicula[] pe1 = listaDoble.rangoDebut(rango);
-        v.imprimirLista(pe1);
-
-        String generos = JOptionPane.showInputDialog("Ingrese el genero de las peliculas");
-        Pelicula[] pe2 = listaDoble.filtGenero(generos);
-        v.imprimirLista(pe2);
-
-
-        String titulo = JOptionPane.showInputDialog("Indique el titulo de la pelicula que desea buscar");
-        Pelicula[] pe = listaDoble.buscarPorCategoria(titulo, "titulo");
-//        Pelicula resultadoUnico = arbolTitulo.buscar(new Pelicula(titulo, "","",
-//                "", "", "",
-//                "", "", "", "")).getDato();
-        v.imprimirLista(pe);
-
-        String clasificacion = JOptionPane.showInputDialog("Indique la calificacion de la pelicula que desea buscar");
-
-        pe = listaDoble.buscarPorCategoria(clasificacion, "calificacion");
-        v.imprimirLista(pe);
-
-        String version = JOptionPane.showInputDialog("Indique la version de la pelicula que desea buscar");
-
-        pe = listaDoble.buscarPorCategoria(version, "version");
-        v.imprimirLista(pe);
+//
+//        mostrarNodos();
+//
+//
+//
+//        //mostrarNodos();
+//        //Para editar se debe buscar la pelicula usando el metodo buscar iterativo y
+//        // luego pasarle otra instancia de pelicula con los datos actualizados
+////        Nodo comprobar = listaDoble.editarIterativo(p,new Pelicula("Zootopia 2", "Disney Animation+", "No estrenada",
+////                "1", "1000", "PG-13", "2030",
+////                "Aventura", "17 de marzo de 2025",
+////                "22222"));
+//        //mostrarNodos();
+////        try{
+////            String genero = JOptionPane.showInputDialog("Ingrese el Genero que desea buscar");
+////            int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de peliculas que desea mostrar"));
+////
+////            Pelicula[] pelis = listaDoble.ordenarPorGeneroMasCostosos(genero,numero);
+////            v.imprimirLista(pelis);
+////
+////        }catch(Exception e ){
+////            e.printStackTrace();
+////        }
+//
+//
+//        String rango = JOptionPane.showInputDialog("Rango de años debut (anio1,anio2)");
+//        Pelicula[] pe1 = listaDoble.rangoDebut(rango);
+//        v.imprimirLista(pe1);
+//
+//        String generos = JOptionPane.showInputDialog("Ingrese el genero de las peliculas");
+//        Pelicula[] pe2 = listaDoble.filtGenero(generos);
+//        v.imprimirLista(pe2);
+//
+//
+//        String titulo = JOptionPane.showInputDialog("Indique el titulo de la pelicula que desea buscar");
+//        Pelicula[] pe = listaDoble.buscarPorCategoria(titulo, "titulo");
+////        Pelicula resultadoUnico = arbolTitulo.buscar(new Pelicula(titulo, "","",
+////                "", "", "",
+////                "", "", "", "")).getDato();
+//        v.imprimirLista(pe);
+//
+//        String clasificacion = JOptionPane.showInputDialog("Indique la calificacion de la pelicula que desea buscar");
+//
+//        pe = listaDoble.buscarPorCategoria(clasificacion, "calificacion");
+//        v.imprimirLista(pe);
+//
+//        String version = JOptionPane.showInputDialog("Indique la version de la pelicula que desea buscar");
+//
+//        pe = listaDoble.buscarPorCategoria(version, "version");
+//        v.imprimirLista(pe);
 
         //v.mostrarInformacion("Resultado Único: " + resultadoUnico);
 

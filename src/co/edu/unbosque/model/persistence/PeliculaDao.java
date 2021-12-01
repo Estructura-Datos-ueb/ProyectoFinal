@@ -1,3 +1,4 @@
+
 package co.edu.unbosque.model.persistence;
 
 import co.edu.unbosque.model.*;
@@ -28,8 +29,8 @@ public class PeliculaDao {
         listaDoble = new ListaDoble();
     }
     public void leerCSV(ArbolBinarioBusqueda id, ArbolBinarioBusqueda titulos) {
-//        this.arbolId = id;
-//        this.arbolTitulo = titulos;
+        this.arbolId = id;
+        this.arbolTitulo = titulos;
         String path="data/DVD.csv";
         line="";
         try {
@@ -41,32 +42,32 @@ public class PeliculaDao {
                 String [] fields = line.split(";");
 
 
-                    if(fields.length<11){
-                            try{
-                                String titulo=fields[0];
-                                String estudio=fields[1];
-                                String estado=fields[2];
-                                String version=fields[3];
-                                String precio=fields[4];
-                                String calificacion=fields[5];
-                                String dateDebut=fields[6];
-                                String genero=fields[7];
-                                String dateIngreso=fields[8];
-                                String Id=fields[9];
-                                int id1 = Integer.parseInt(Id);
-                                dvd = new Pelicula(titulo,estudio,estado,version,precio,calificacion,dateDebut,genero,dateIngreso,Id);
+                if(fields.length<11){
+                    try{
+                        String titulo=fields[0];
+                        String estudio=fields[1];
+                        String estado=fields[2];
+                        String version=fields[3];
+                        String precio=fields[4];
+                        String calificacion=fields[5];
+                        String dateDebut=fields[6];
+                        String genero=fields[7];
+                        String dateIngreso=fields[8];
+                        String Id=fields[9];
+                        int id1 = Integer.parseInt(Id);
+                        dvd = new Pelicula(titulo,estudio,estado,version,precio,calificacion,dateDebut,genero,dateIngreso,Id);
+                        arbolId.insertar(dvd);
+                        if(i==0){
+                            listaDoble.insertarCabezaLista(dvd);
+                        }else{
+                            listaDoble.insertarDespues(listaDoble.getActual(), dvd);
+                        }
+                        i++;
 
-                                if(i==0){
-                                    listaDoble.insertarCabezaLista(dvd);
-                                }else{
-                                    listaDoble.insertarDespues(listaDoble.getActual(), dvd);
-                                }
-                                i++;
-
-                            } catch (NumberFormatException e) {
-                                //System.out.println("No agregado inconsistencia en los datos");
-                            }
+                    } catch (NumberFormatException e) {
+                        //System.out.println("No agregado inconsistencia en los datos");
                     }
+                }
 
                 line = br.readLine();
             }
