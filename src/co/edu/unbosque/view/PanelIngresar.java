@@ -43,7 +43,10 @@ public class PanelIngresar extends JPanel {
 		
 		setBounds(250, 25, 660, 300);
 		setLayout(null);
-		setBackground(new Color(100,177,255));
+		setBackground(new Color(42, 197, 211));
+		Color c1 = new Color(20, 16, 3);
+		Color c2 = new Color(42, 197, 211);
+		Font f = new Font("Times new Roman", Font.BOLD, 13);
 		
 		etiqueta_titulo = new JLabel("Modulo de Ingreso de Pelicula");
 		Font fuente=new Font("Dialog", Font.BOLD, 18);
@@ -115,6 +118,9 @@ public class PanelIngresar extends JPanel {
 		registrar = new JButton("Registrar Pelicula");
 		registrar.setBounds(260, 250, 150, 27);
 		registrar.setActionCommand("registrar");
+		registrar.setBackground(c1);
+		registrar.setForeground(c2);
+		registrar.setFont(f);
 		add(registrar);
     	
 		//-------------------------------------------
@@ -146,6 +152,9 @@ public class PanelIngresar extends JPanel {
 		limpiar = new JButton("Limpiar Formulario");
 		limpiar.setBounds(440, 250, 150, 27);
 		limpiar.setActionCommand("limpiarRegistro");
+		limpiar.setBackground(c1);
+		limpiar.setForeground(c2);
+		limpiar.setFont(f);
 		add(limpiar);
 			
 	}

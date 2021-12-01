@@ -22,7 +22,10 @@ public class PanelBuscar extends JPanel {
 
 		setBounds(250, 25, 660, 300);
 		setLayout(null);
-		setBackground(new Color(100,177,255));
+		setBackground(new Color(42, 197, 211));
+		Color c1 = new Color(20, 16, 3);
+		Color c2 = new Color(42, 197, 211);
+		Font f = new Font("Times new Roman", Font.BOLD, 17);
 
 		etiqueta_titulo = new JLabel("Buscar pelicula dados ciertos parametros");
 		Font fuente=new Font("Dialog", Font.BOLD, 18);
@@ -64,13 +67,19 @@ public class PanelBuscar extends JPanel {
 		add(campo_Texto2);
 
 		buscar = new JButton("Buscar");
-		buscar.setBounds(430, 100, 80, 27);
+		buscar.setBounds(430, 100, 150, 27);
 		buscar.setActionCommand("buscarCategoria");
+		buscar.setBackground(c1);
+		buscar.setForeground(c2);
+		buscar.setFont(f);
 		add(buscar);
 
 		limpiar = new JButton("Limpiar Formulario");
 		limpiar.setActionCommand("limpiarPanelFiltro");
-		limpiar.setBounds(370, 250, 150, 27);
+		limpiar.setBounds(370, 250, 300, 27);
+		limpiar.setBackground(c1);
+		limpiar.setForeground(c2);
+		limpiar.setFont(f);
 		add(limpiar);
 
 
@@ -120,6 +129,7 @@ public class PanelBuscar extends JPanel {
 	}
 
 	public void limpiarListas(){
+		System.out.println("hola");
 		campoTexto1.setText("");
 		campo_Texto2.setText("");
 	}

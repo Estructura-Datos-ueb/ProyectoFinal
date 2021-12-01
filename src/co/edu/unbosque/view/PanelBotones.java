@@ -1,6 +1,6 @@
 package co.edu.unbosque.view;
 
-import java.awt.Color;
+import java.awt.*;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -12,38 +12,47 @@ public class PanelBotones extends JPanel {
 	public JButton modificar;
 	public JButton eliminar;
 	public JButton prestar;
-	public JButton mostrarLista;
 
 
 	public PanelBotones() {
 		
 		setBounds(15, 25, 220, 300);
 		setLayout(null);
-		setBackground(new Color(0,0,255));
+		Color c = new Color(42, 197, 211);
+		Font f = new Font("Times new Roman", Font.BOLD, 17);
+		setBackground(c);
 		
 		ingresar = new JButton("Ingresar Pelicula");
-		ingresar.setBounds(35, 60, 150, 27);
+		ingresar.setBounds(35, 60, 175, 35);
 		ingresar.setActionCommand("IngresoRegistro");
+		ingresar.setBackground(new Color(20, 16, 3));
+		ingresar.setForeground(c);
+		ingresar.setFont(f);
 		add(ingresar);
-		
-		mostrarLista = new JButton("Mostrar Lista");
-		mostrarLista.setBounds(35, 260, 150, 27);
-		mostrarLista.setEnabled(false);
-		add(mostrarLista);
+
 		
 		buscar = new JButton("Filtrar Peliculas");
-		buscar.setBounds(35, 110, 150, 27);
+		buscar.setBounds(35, 110, 175, 35);
 		buscar.setActionCommand("BuscarPelicula");
+		buscar.setBackground(new Color(20, 16, 3));
+		buscar.setForeground(c);
+		buscar.setFont(f);
 		add(buscar);
 		
 		modificar = new JButton("Modificar Pelicula");
-		modificar.setBounds(35, 160, 150, 27);
+		modificar.setBounds(35, 160, 175, 35);
 		modificar.setActionCommand("ModificarPelicula");
+		modificar.setBackground(new Color(20, 16, 3));
+		modificar.setForeground(c);
+		modificar.setFont(f);
 		add(modificar);
 		
 		eliminar = new JButton("Eliminar pelicula");
-		eliminar.setBounds(35, 210, 150, 27);
+		eliminar.setBounds(35, 210, 175, 35);
 		eliminar.setActionCommand("EliminarPelicula");
+		eliminar.setBackground(new Color(20, 16, 3));
+		eliminar.setForeground(c);
+		eliminar.setFont(f);
 		add(eliminar);
 		
 		prestar = new JButton("Realizar Prestamo");
@@ -93,11 +102,5 @@ public class PanelBotones extends JPanel {
 		this.prestar = prestar;
 	}
 
-	public JButton getMostrarLista() {
-		return mostrarLista;
-	}
 
-	public void setMostrarLista(JButton mostrarLista) {
-		this.mostrarLista = mostrarLista;
-	}
 }

@@ -16,7 +16,8 @@ public class VentanaEmergente extends JFrame{
 	    setLocationRelativeTo(null);
 	    
 		getContentPane().setLayout(null);
-		getContentPane().setBackground(new Color(100, 177, 255));
+		getContentPane().setBackground(new Color(20, 16, 3
+		));
 
 		panel_mostrarLista = new PanelMostrarLista();
 		getContentPane().add(panel_mostrarLista);

@@ -21,15 +21,15 @@ public class VentanaPrincipal extends JFrame {
 
 	
 	public VentanaPrincipal() {
-		setSize(850, 380);
+		setSize(950, 380);
 
 		setTitle("Proyecto final ED");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setResizable(false);
+	    setResizable(true);
 	    setLocationRelativeTo(null);
 	    
 		getContentPane().setLayout(null);
-		getContentPane().setBackground(new Color(192,192,192));
+		getContentPane().setBackground(new Color(20, 16, 3));
 		
 		panel_botones = new PanelBotones();
 		getContentPane().add(panel_botones);

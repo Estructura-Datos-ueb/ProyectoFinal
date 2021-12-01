@@ -21,7 +21,10 @@ public class PanelEliminar extends JPanel {
 		
 		setBounds(250, 25, 660, 300);
 		setLayout(null);
-		setBackground(new Color(100,177,255));
+		setBackground(new Color(42, 197, 211));
+		Color c1 = new Color(20, 16, 3);
+		Color c2 = new Color(42, 197, 211);
+		Font f = new Font("Times new Roman", Font.BOLD, 13);
 		 
 		etiqueta_titulo = new JLabel("Modulo de Eliminar Pelicula");
 		Font fuente=new Font("Dialog", Font.BOLD, 18);
@@ -41,11 +44,19 @@ public class PanelEliminar extends JPanel {
 		eliminar = new JButton("Borrar Pelicula");
 		eliminar.setBounds(200, 250, 150, 27);
 		eliminar.setActionCommand("eliminarPelicula");
+		eliminar.setBackground(c1);
+		eliminar.setForeground(c2);
+		eliminar.setFont(f);
+
 		add(eliminar);
 		
 		limpiar = new JButton("Limpiar Formulario");
 		limpiar.setBounds(370, 250, 150, 27);
 		limpiar.setActionCommand("limipiarEliminar");
+		limpiar.setBackground(c1);
+		limpiar.setForeground(c2);
+		limpiar.setFont(f);
+
 		add(limpiar);
 		
 		

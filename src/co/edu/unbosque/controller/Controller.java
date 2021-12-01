@@ -25,7 +25,6 @@ public class Controller implements ActionListener {
     private ArbolBinarioBusqueda arbolTitulo;
     private VentanaEmergente popup;
 
-    private int caso;
 
     public Controller () {
 
@@ -43,20 +42,16 @@ public class Controller implements ActionListener {
         peliModi = null;
         asignarOyentes();
 
-//        start();
+
     }
 
     public void asignarOyentes() {
-
-
-
         ventana_principal.panel_botones.ingresar.addActionListener(this);
         ventana_principal.panel_ingresar.registrar.addActionListener(this);
         ventana_principal.panel_ingresar.limpiar.addActionListener(this);
 
         ventana_principal.panel_botones.buscar.addActionListener(this);
-        //ventana_principal.panel_ver.buscar.addActionListener(this);
-        //ventana_principal.panel_ver.limpiar.addActionListener(this);
+
 
         ventana_principal.panel_botones.modificar.addActionListener(this);
         ventana_principal.panel_modificar.actualizar.addActionListener(this);
@@ -68,9 +63,9 @@ public class Controller implements ActionListener {
         ventana_principal.panel_eliminar.limpiar.addActionListener(this);
 
         ventana_principal.panel_buscar.buscar.addActionListener(this);
-        ventana_principal.panel_buscar.limpiar.addActionListener(this);
 
-        ventana_principal.panel_botones.mostrarLista.addActionListener(this);
+
+
         ventana_principal.panel_buscar.getListaOpciones().addActionListener(this);
         ventana_principal.panel_buscar.getLimpiar().addActionListener(this);
 
@@ -81,7 +76,6 @@ public class Controller implements ActionListener {
 
 
         String command = e.getActionCommand();
-        System.out.println("Comando: " + command);
         switch (command){
 
             case "IngresoRegistro":
@@ -92,7 +86,6 @@ public class Controller implements ActionListener {
 
                 break;
             case "registrar":
-                System.out.println("registrar");
                 try{
                     int id =Integer.parseInt(ventana_principal.panel_ingresar.getCampoTexto_id().getText());
                     Pelicula pelicula = new Pelicula(
@@ -110,7 +103,7 @@ public class Controller implements ActionListener {
                     listaDoble.insertarDespues(listaDoble.getActual(), pelicula);
                     dvdCsv.setListaDoble(listaDoble);
                     dvdCsv.modificarCsv();
-                    System.out.println("agregado");
+                    v.mostrarInformacion("agregado");
                 } catch (Exception exception) {
                     v.mostrarInformacion("El id ya se encuentra asignado o datos incorrectos");
                     exception.printStackTrace();
@@ -132,7 +125,7 @@ public class Controller implements ActionListener {
             case "buscarPelicula":
                 break;
             case "limpiarPanelBusqueda":
-                System.out.println("asdf");
+
                 ventana_principal.panel_buscar.limpiarFormulario();
                 break;
             case "EliminarPelicula":
@@ -302,12 +295,15 @@ public class Controller implements ActionListener {
                         }
 
                         break;
-                    case "limpiarPanelFiltro":
-                    ventana_principal.panel_buscar.limpiarListas();
+
                 }
-
-
                 break;
+            case "limpiarPanelFiltro":
+
+                ventana_principal.panel_buscar.limpiarListas();
+                break;
+
+
         }
 
     }
@@ -357,95 +353,7 @@ public class Controller implements ActionListener {
     }
 
     
-    public void start() {
 
-        mostrarNodos();
-         String id = JOptionPane.showInputDialog("Ingrese Id");
-
-
-        try {
-            Nodo nodoEliminar = listaDoble.buscarIterativo(id);
-
-            arbolId.eliminar(nodoEliminar.dvd);
-            listaDoble.eliminar(nodoEliminar);
-        }catch (Exception e){
-        v.mostrarInformacion("Esa pelicula no existe");
-        }
-
-
-        //Para anadir se le debe pasar de parametro una pelicula nueva al metodo insertarCabezaLista
-//        Pelicula p = new Pelicula("Zootopia", "Disney Animation", "Fuera", "1",
-//                "300", "PG", "2017", "Aventura", "17 de marzo de 2016",
-//                "106128");
-//
-//
-//        try {
-//            arbolId.insertar(p);
-//            listaDoble.insertarCabezaLista(p);
-//        }catch (Exception e){
-//            v.mostrarInformacion("Ya existe esa peli");
-//        }
-//
-//        mostrarNodos();
-//
-//
-//
-//        //mostrarNodos();
-//        //Para editar se debe buscar la pelicula usando el metodo buscar iterativo y
-//        // luego pasarle otra instancia de pelicula con los datos actualizados
-////        Nodo comprobar = listaDoble.editarIterativo(p,new Pelicula("Zootopia 2", "Disney Animation+", "No estrenada",
-////                "1", "1000", "PG-13", "2030",
-////                "Aventura", "17 de marzo de 2025",
-////                "22222"));
-//        //mostrarNodos();
-////        try{
-////            String genero = JOptionPane.showInputDialog("Ingrese el Genero que desea buscar");
-////            int numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero de peliculas que desea mostrar"));
-////
-////            Pelicula[] pelis = listaDoble.ordenarPorGeneroMasCostosos(genero,numero);
-////            v.imprimirLista(pelis);
-////
-////        }catch(Exception e ){
-////            e.printStackTrace();
-////        }
-//
-//
-//        String rango = JOptionPane.showInputDialog("Rango de años debut (anio1,anio2)");
-//        Pelicula[] pe1 = listaDoble.rangoDebut(rango);
-//        v.imprimirLista(pe1);
-//
-//        String generos = JOptionPane.showInputDialog("Ingrese el genero de las peliculas");
-//        Pelicula[] pe2 = listaDoble.filtGenero(generos);
-//        v.imprimirLista(pe2);
-//
-//
-//        String titulo = JOptionPane.showInputDialog("Indique el titulo de la pelicula que desea buscar");
-//        Pelicula[] pe = listaDoble.buscarPorCategoria(titulo, "titulo");
-////        Pelicula resultadoUnico = arbolTitulo.buscar(new Pelicula(titulo, "","",
-////                "", "", "",
-////                "", "", "", "")).getDato();
-//        v.imprimirLista(pe);
-//
-//        String clasificacion = JOptionPane.showInputDialog("Indique la calificacion de la pelicula que desea buscar");
-//
-//        pe = listaDoble.buscarPorCategoria(clasificacion, "calificacion");
-//        v.imprimirLista(pe);
-//
-//        String version = JOptionPane.showInputDialog("Indique la version de la pelicula que desea buscar");
-//
-//        pe = listaDoble.buscarPorCategoria(version, "version");
-//        v.imprimirLista(pe);
-
-        //v.mostrarInformacion("Resultado Único: " + resultadoUnico);
-
-
-        // se debe hacer el set de la lista doble en cual cargo todos lo datos del csv
-        // para postrteriormente sobre escribir el archivo y que los cambios persistan
-        dvdCsv.setListaDoble(listaDoble);
-        //mostrarNodos();
-        dvdCsv.modificarCsv();
-
-    }
 
     public void mostrarNodos() {
         Nodo nodoInicio;
@@ -456,27 +364,7 @@ public class Controller implements ActionListener {
         }
     }
 
-    public boolean cargarListaEliminar(Pelicula dvd){
-        if(dvd != null){
-            if(listaEliminar.getCabeza()==null){
-                listaEliminar.insertarCabezaLista(dvd);
-                return true;
-            }
-            listaEliminar.insertarDespues(listaEliminar.getActual(),dvd);
-            return true;
-        }else {
-            return false;
-        }
-    }
-    
-    public void eliminarNodos(){
-      Nodo nodoActual = listaEliminar.getCabeza();
-      while(nodoActual!=null){
-          listaDoble.eliminar(nodoActual);
-          nodoActual= nodoActual.adelante;
-      }
 
-    }
 
 
 }

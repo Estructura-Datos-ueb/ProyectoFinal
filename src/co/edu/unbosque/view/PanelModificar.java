@@ -45,7 +45,10 @@ public class PanelModificar extends JPanel {
 
 		setBounds(250, 25, 660, 300);
 		setLayout(null);
-		setBackground(new Color(100,177,255));
+		setBackground(new Color(42, 197, 211));
+		Color c1 = new Color(20, 16, 3);
+		Color c2 = new Color(42, 197, 211);
+		Font f = new Font("Times new Roman", Font.BOLD, 13);
 
 		etiqueta_titulo = new JLabel("Modulo de Modificar Película");
 		Font fuente=new Font("Dialog", Font.BOLD, 18);
@@ -123,6 +126,9 @@ public class PanelModificar extends JPanel {
 		actualizar = new JButton("Actualizar Película");
 		actualizar.setBounds(212, 250, 150, 27);
 		actualizar.setActionCommand("actualizarPelicula");
+		actualizar.setBackground(c1);
+		actualizar.setForeground(c2);
+		actualizar.setFont(f);
 		add(actualizar);
 
 		//-------------------------------------------
@@ -156,11 +162,17 @@ public class PanelModificar extends JPanel {
 		limpiar = new JButton("Limpiar Formulario");
 		limpiar.setBounds(379, 250, 150, 27);
 		limpiar.setActionCommand("limipiarPanelModifi");
+		limpiar.setBackground(c1);
+		limpiar.setForeground(c2);
+		limpiar.setFont(f);
 		add(limpiar);
 
 		buscar = new JButton("Buscar:");
 		buscar.setBounds(550, 250, 100, 27);
 		buscar.setActionCommand("buscarMofificar");
+		buscar.setBackground(c1);
+		buscar.setForeground(c2);
+		buscar.setFont(f);
 		add(buscar);
 
 

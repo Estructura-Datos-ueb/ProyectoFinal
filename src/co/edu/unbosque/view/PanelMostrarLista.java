@@ -22,7 +22,7 @@ public class PanelMostrarLista extends JPanel {
 
 		setBounds(0, 25, 1000, 800);
 		setLayout(null);
-		setBackground(new Color(100, 177, 255));
+		setBackground(new Color(42, 197, 211));
 
 	}
 
@@ -33,10 +33,13 @@ public class PanelMostrarLista extends JPanel {
 	public void agregarTabla(Object datos[][]) {
 
 		String columnas[] = {"Titulo", "Estudio", "Estado", "Versiones", "Precio", "Clasificacion", "Anio", "Genero", "Fecha Publicacion", "ID" };
-
+		Color c1 = new Color(20, 16, 3);
+		Color c2 = new Color(42, 197, 211);
 		tabla = new JTable(datos, columnas);
 		tabla.isEditing();
 		tabla.setEnabled(false);
+		tabla.setBackground(c1);
+		tabla.setForeground(c2);
 
 
 		sp = new JScrollPane(tabla);
