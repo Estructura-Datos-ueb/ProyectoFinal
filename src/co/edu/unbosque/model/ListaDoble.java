@@ -155,9 +155,7 @@ public class ListaDoble {
             }
         }while(aux != null);
 
-        for (int i = 0; i < lista.length; i++) {
-            System.out.println(lista[i].toString());
-        }
+
         lista = ordenarListaPorPrecios(lista, numero);
         // Retorna el resultado de la bandera.
         return lista;
@@ -211,7 +209,7 @@ public class ListaDoble {
 
         do{
             if(tipo.equalsIgnoreCase("titulo")){
-                if (aux.getDvd().getTitulo().toLowerCase().contains(dato.toLowerCase())){
+                if (aux.getDvd().getTitulo().toLowerCase().contains(dato.toLowerCase())&& lista.length!=0){
                     // Cambia el valor de la bandera.
                     lista[contador] = aux.getDvd();
                     contador++;
@@ -221,7 +219,7 @@ public class ListaDoble {
                     aux = aux.adelante;
                 }
             }else if (tipo.equalsIgnoreCase("calificacion")){
-                if (aux.getDvd().getCalificacion().toLowerCase().contains(dato.toLowerCase())){
+                if (aux.getDvd().getCalificacion().toLowerCase().contains(dato.toLowerCase() )&& lista.length!=0){
                     // Canbia el valor de la bandera.
                     lista[contador] = aux.getDvd();
                     contador++;
@@ -231,7 +229,7 @@ public class ListaDoble {
                     aux = aux.adelante;
                 }
             }else{
-                if (aux.getDvd().getVersion().toLowerCase().contains(dato.toLowerCase())){
+                if (aux.getDvd().getVersion().toLowerCase().contains(dato.toLowerCase() )&& lista.length!=0){
                     // Canbia el valor de la bandera.
                     lista[contador] = aux.getDvd();
                     contador++;

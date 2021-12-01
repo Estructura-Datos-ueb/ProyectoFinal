@@ -1,6 +1,6 @@
 package co.edu.unbosque.view;
 
-import java.awt.Color;
+import java.awt.*;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -20,7 +20,7 @@ public class PanelMostrarLista extends JPanel {
 
 	public PanelMostrarLista() {
 
-		setBounds(250, 25, 530, 300);
+		setBounds(0, 25, 1000, 800);
 		setLayout(null);
 		setBackground(new Color(100, 177, 255));
 
@@ -32,14 +32,17 @@ public class PanelMostrarLista extends JPanel {
 
 	public void agregarTabla(Object datos[][]) {
 
-		String columnas[] = {"Título", "Estudio", "Estado", "Versiones", "Precio", "Clasificación", "Año", "Género", "Fecha Publicación", "ID" };
+		String columnas[] = {"Titulo", "Estudio", "Estado", "Versiones", "Precio", "Clasificacion", "Anio", "Genero", "Fecha Publicacion", "ID" };
 
 		tabla = new JTable(datos, columnas);
 		tabla.isEditing();
 		tabla.setEnabled(false);
 
+
 		sp = new JScrollPane(tabla);
-		sp.setBounds(15, 30, 480, 255);
+		sp.setBounds(15, 0, 950, 750);
+
+
 		add(sp);
 	}
 }

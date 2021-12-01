@@ -9,15 +9,15 @@ public class VentanaEmergente extends JFrame{
 	public PanelMostrarLista panel_mostrarLista;
 	
 	public VentanaEmergente() {
-		setSize(850, 380);
-		setTitle("Resultados de búsqueda");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    setResizable(false);
+		setSize(1000, 800);
+		setTitle("Resultados de busqueda");
+		setDefaultCloseOperation(this.HIDE_ON_CLOSE);
+	    setResizable(true);
 	    setLocationRelativeTo(null);
 	    
 		getContentPane().setLayout(null);
-		getContentPane().setBackground(new Color(192,192,192));
-		
+		getContentPane().setBackground(new Color(100, 177, 255));
+
 		panel_mostrarLista = new PanelMostrarLista();
 		getContentPane().add(panel_mostrarLista);
 				
